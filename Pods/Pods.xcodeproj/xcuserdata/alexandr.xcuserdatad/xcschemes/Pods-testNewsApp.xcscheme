@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "86EA747C1DB91BFA006046C5"
-               BuildableName = "testNewsApp.app"
-               BlueprintName = "testNewsApp"
-               ReferencedContainer = "container:testNewsApp.xcodeproj">
+               BlueprintIdentifier = "4DCDAC0577B75C329D2CF79ED282D45B"
+               BuildableName = "libPods-testNewsApp.a"
+               BlueprintName = "Pods-testNewsApp"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "86EA747C1DB91BFA006046C5"
-            BuildableName = "testNewsApp.app"
-            BlueprintName = "testNewsApp"
-            ReferencedContainer = "container:testNewsApp.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -51,16 +42,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "86EA747C1DB91BFA006046C5"
-            BuildableName = "testNewsApp.app"
-            BlueprintName = "testNewsApp"
-            ReferencedContainer = "container:testNewsApp.xcodeproj">
+            BlueprintIdentifier = "4DCDAC0577B75C329D2CF79ED282D45B"
+            BuildableName = "libPods-testNewsApp.a"
+            BlueprintName = "Pods-testNewsApp"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -70,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "86EA747C1DB91BFA006046C5"
-            BuildableName = "testNewsApp.app"
-            BlueprintName = "testNewsApp"
-            ReferencedContainer = "container:testNewsApp.xcodeproj">
+            BlueprintIdentifier = "4DCDAC0577B75C329D2CF79ED282D45B"
+            BuildableName = "libPods-testNewsApp.a"
+            BlueprintName = "Pods-testNewsApp"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
