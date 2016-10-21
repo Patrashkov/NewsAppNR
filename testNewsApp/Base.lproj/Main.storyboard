@@ -71,36 +71,37 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Q5o-e5-4kx"/>
                                 </connections>
                             </tableView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search bar category: sport, technology, music....." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvR-Un-bUG">
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihF-Et-QOP">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="162" id="ZjU-hO-GPD"/>
+                                </constraints>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QgH-Ap-dRa"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="vsY-db-iGs"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pJr-N4-nBS"/>
                                 </connections>
-                            </textField>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="cvR-Un-bUG" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2hy-jj-MGf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wmI-qq-dnh" secondAttribute="bottom" id="3kL-3w-J6a"/>
-                            <constraint firstItem="wmI-qq-dnh" firstAttribute="top" secondItem="cvR-Un-bUG" secondAttribute="bottom" id="MHD-vr-NfG"/>
-                            <constraint firstItem="cvR-Un-bUG" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gOa-F5-WIa"/>
-                            <constraint firstAttribute="trailing" secondItem="wmI-qq-dnh" secondAttribute="trailing" id="iiy-UE-nrz"/>
-                            <constraint firstItem="wmI-qq-dnh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="jhH-L3-mn9"/>
-                            <constraint firstAttribute="trailing" secondItem="cvR-Un-bUG" secondAttribute="trailing" id="ziH-zz-0MT"/>
+                            <constraint firstItem="ihF-Et-QOP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="DOD-cr-6O4"/>
+                            <constraint firstAttribute="trailing" secondItem="ihF-Et-QOP" secondAttribute="trailing" constant="5" id="Gcc-H1-Vhw"/>
+                            <constraint firstItem="wmI-qq-dnh" firstAttribute="top" secondItem="ihF-Et-QOP" secondAttribute="bottom" constant="5" id="UXh-jE-CLb"/>
+                            <constraint firstAttribute="trailing" secondItem="wmI-qq-dnh" secondAttribute="trailing" id="aQg-Fz-cpZ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wmI-qq-dnh" secondAttribute="bottom" id="cZQ-MX-BiP"/>
+                            <constraint firstItem="ihF-Et-QOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="jqk-1H-9BV"/>
+                            <constraint firstItem="wmI-qq-dnh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="snU-m8-4xj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="lHg-AE-ga4"/>
                     <connections>
-                        <outlet property="searchBarTextField" destination="cvR-Un-bUG" id="5Jl-t5-50u"/>
+                        <outlet property="pickerView" destination="ihF-Et-QOP" id="DM0-7F-4UD"/>
                         <outlet property="tableView" destination="wmI-qq-dnh" id="ObZ-Rr-89c"/>
                         <segue destination="77q-hZ-tsB" kind="show" identifier="showInfo" id="VWm-mg-o1C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1038" y="139"/>
+            <point key="canvasLocation" x="1037.5999999999999" y="138.98050974512745"/>
         </scene>
         <!--Detail Info-->
         <scene sceneID="Mko-Wr-gqt">

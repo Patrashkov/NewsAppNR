@@ -19,28 +19,29 @@ typedef enum {
 	kCategorizedNews,
 } NewsType;
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextField *searchBarTextField;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (strong, nonatomic) NSArray *responseJSONArray;
+@property (strong, nonatomic) NSArray *pickerData;
 @property (assign, nonatomic) NewsType newsType;
 
 @property (strong, nonatomic) NSString *urlForDetails;
 
 @end
-
+// url and apiKey
 static NSString *const kUrlNewsDefault = @"https://newsapi.org/v1/articles?source=techcrunch";
-static NSString *const kAPIKEY = @"262fcd3d295b4304ba053ac59ef70492";
 static NSString *const kCategoryURL = @"https://newsapi.org/v1/sources?category=";
+static NSString *const kAPIKEY = @"262fcd3d295b4304ba053ac59ef70492";
+// category
+static NSString *const kTopNews = @"Top";
 static NSString *const kBusiness = @"business";
 static NSString *const kEntertainment = @"entertainment";
 static NSString *const kGaming = @"gaming";
 static NSString *const kGeneral = @"general";
 static NSString *const kMusic = @"music";
-static NSString *const kScienceAndNature = @"science and nature";
-static NSString *const kScience = @"science";
-static NSString *const kNature = @"nature";
+static NSString *const kScienceAndNature = @"science-and-nature";
 static NSString *const kSport = @"sport";
 static NSString *const kTechnology = @"technology";
 
@@ -48,6 +49,7 @@ static NSString *const kTechnology = @"technology";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pickerData = @[kTopNews, kBusiness, kEntertainment, kGaming, kGeneral, kMusic, kScienceAndNature, kSport, kTechnology];
 	self.newsType = kNotSpecified;
 	
     self.tableView.estimatedRowHeight = 150;
@@ -62,6 +64,7 @@ static NSString *const kTechnology = @"technology";
 		detailInfo.url = self.urlForDetails;
 	}
 }
+
 
 #pragma mark - LoadDataWithURL
 - (void)loadAllNews {
@@ -144,6 +147,7 @@ static NSString *const kTechnology = @"technology";
 	return cell;
 }
 
+
 #pragma mark - UITableViewDelegate 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSDictionary *newsInfo = self.responseJSONArray[indexPath.row];
@@ -152,40 +156,49 @@ static NSString *const kTechnology = @"technology";
 }
 
 
-#pragma mark - UITextFieldDelegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if ([textField.text isEqualToString:kBusiness]) {
-		[self loadDataForCategory:kBusiness];
+#pragma mark - UIPickerViewDataSource
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    return self.pickerData.count;
+}
+
+- (nullable NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component __TVOS_PROHIBITED {
+    return self.pickerData[row];
+}
+
+
+#pragma mark - UIPickerViewDelegate
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component __TVOS_PROHIBITED {
+    if ([self.pickerData[row] isEqualToString: kBusiness]) {
+        [self loadDataForCategory:kBusiness];
     }
-    else if ([textField.text isEqualToString: kSport]) {
-		[self loadDataForCategory:kSport];
+    else if ([self.pickerData[row] isEqualToString: kSport]) {
+        [self loadDataForCategory:kSport];
     }
-    else if ([textField.text isEqualToString: kEntertainment]) {
-		[self loadDataForCategory:kEntertainment];
+    else if ([self.pickerData[row] isEqualToString: kEntertainment]) {
+        [self loadDataForCategory:kEntertainment];
     }
-    else if ([textField.text isEqualToString: kMusic]) {
-		[self loadDataForCategory:kMusic];
+    else if ([self.pickerData[row] isEqualToString: kMusic]) {
+        [self loadDataForCategory:kMusic];
     }
-    else if ([textField.text isEqualToString: kGaming]) {
-		[self loadDataForCategory:kGaming];
+    else if ([self.pickerData[row] isEqualToString: kGaming]) {
+        [self loadDataForCategory:kGaming];
     }
-    else if ([textField.text isEqualToString: kScienceAndNature]) {
-		[self loadDataForCategory:kScienceAndNature];
+    else if ([self.pickerData[row] isEqualToString: kScienceAndNature]) {
+        [self loadDataForCategory:kScienceAndNature];
     }
-    else if ([textField.text isEqualToString: kScience]) {
-		[self loadDataForCategory:kScience];
+    else if ([self.pickerData[row] isEqualToString: kGeneral]) {
+        [self loadDataForCategory:kGeneral];
     }
-    else if ([textField.text isEqualToString: kNature]) {
-		[self loadDataForCategory:kNature];
+    else if ([self.pickerData[row] isEqualToString: kTechnology]) {
+        [self loadDataForCategory:kTechnology];
     }
-    else if ([textField.text isEqualToString: kTechnology]) {
-		[self loadDataForCategory:kTechnology];
+    else if ([self.pickerData[row] isEqualToString: kTopNews]) {
+        [self loadAllNews];
     }
-    else if ([textField.text isEqualToString: kGeneral]) {
-		[self loadDataForCategory:kGeneral];
-    }
-    [textField resignFirstResponder];
-    return YES;
 }
 
 @end
