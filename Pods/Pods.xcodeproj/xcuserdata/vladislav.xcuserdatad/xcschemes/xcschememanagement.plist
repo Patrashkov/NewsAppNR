@@ -14,10 +14,20 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RNFrostedSidebar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>4DCDAC0577B75C329D2CF79ED282D45B</key>
+		<key>2B21F0561CE68AFEC6C3855E92C50E5F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>329AC3566FC302796B7D828B8BF49D81</key>
 		<dict>
 			<key>primary</key>
 			<true/>

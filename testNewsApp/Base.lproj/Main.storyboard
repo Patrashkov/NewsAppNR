@@ -26,7 +26,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BRP-A7-oZw" id="8A4-rA-Ggf">
-                                            <frame key="frameInset" width="375" height="149"/>
+                                            <frame key="frameInset" width="375" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="240" misplaced="YES" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-g7-8Ni">
@@ -71,30 +71,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Q5o-e5-4kx"/>
                                 </connections>
                             </tableView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihF-Et-QOP">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="162" id="ZjU-hO-GPD"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="vsY-db-iGs"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="pJr-N4-nBS"/>
-                                </connections>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="ihF-Et-QOP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="5" id="DOD-cr-6O4"/>
-                            <constraint firstAttribute="trailing" secondItem="ihF-Et-QOP" secondAttribute="trailing" constant="5" id="Gcc-H1-Vhw"/>
-                            <constraint firstItem="wmI-qq-dnh" firstAttribute="top" secondItem="ihF-Et-QOP" secondAttribute="bottom" constant="5" id="UXh-jE-CLb"/>
-                            <constraint firstAttribute="trailing" secondItem="wmI-qq-dnh" secondAttribute="trailing" id="aQg-Fz-cpZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wmI-qq-dnh" secondAttribute="bottom" id="cZQ-MX-BiP"/>
-                            <constraint firstItem="ihF-Et-QOP" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="5" id="jqk-1H-9BV"/>
-                            <constraint firstItem="wmI-qq-dnh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="snU-m8-4xj"/>
+                            <constraint firstAttribute="trailing" secondItem="wmI-qq-dnh" secondAttribute="trailing" id="4HX-e1-Ok6"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="wmI-qq-dnh" secondAttribute="bottom" id="AN9-mf-JKu"/>
+                            <constraint firstItem="wmI-qq-dnh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZxK-c5-mYp"/>
+                            <constraint firstItem="wmI-qq-dnh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="mFL-uz-NFq"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="lHg-AE-ga4"/>
+                    <navigationItem key="navigationItem" title="News" id="lHg-AE-ga4">
+                        <barButtonItem key="leftBarButtonItem" image="category" id="dvo-lO-xDQ">
+                            <connections>
+                                <action selector="categoryAction:" destination="BYZ-38-t0r" id="3Is-ea-bEY"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="pickerView" destination="ihF-Et-QOP" id="DM0-7F-4UD"/>
                         <outlet property="tableView" destination="wmI-qq-dnh" id="ObZ-Rr-89c"/>
                         <segue destination="77q-hZ-tsB" kind="show" identifier="showInfo" id="VWm-mg-o1C"/>
                     </connections>
@@ -117,18 +110,25 @@
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YoA-5N-uVY">
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="77q-hZ-tsB" id="vfA-VK-cl6"/>
+                                </connections>
                             </webView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bEL-3P-Rbi"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="MsF-F3-8UE" firstAttribute="top" secondItem="YoA-5N-uVY" secondAttribute="bottom" id="9B2-Tb-tfe"/>
                             <constraint firstAttribute="trailing" secondItem="YoA-5N-uVY" secondAttribute="trailing" id="PGf-s4-t2l"/>
+                            <constraint firstItem="bEL-3P-Rbi" firstAttribute="centerX" secondItem="gXF-o0-OtC" secondAttribute="centerX" id="eaw-8O-Ju1"/>
                             <constraint firstItem="YoA-5N-uVY" firstAttribute="top" secondItem="h0i-Np-FMm" secondAttribute="bottom" id="ljR-j3-chb"/>
                             <constraint firstItem="YoA-5N-uVY" firstAttribute="leading" secondItem="gXF-o0-OtC" secondAttribute="leading" id="yhG-Bb-v0b"/>
+                            <constraint firstItem="bEL-3P-Rbi" firstAttribute="centerY" secondItem="gXF-o0-OtC" secondAttribute="centerY" id="zwD-cc-wkq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail Info" id="HFN-2a-mr0"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="bEL-3P-Rbi" id="6WT-E4-yVj"/>
                         <outlet property="webView" destination="YoA-5N-uVY" id="0yp-fq-tzK"/>
                     </connections>
                 </viewController>
@@ -155,4 +155,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="category" width="16" height="16"/>
+    </resources>
 </document>
